@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+        backdropFilter: {
+        none: "none",
+        blur: "blur(20px)",
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-filters'),
+  ],
 }

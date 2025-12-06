@@ -86,7 +86,7 @@ export default function MemberManagement() {
 
   return (
     <div className="p-8">
-      <div className="mb-8">
+      <div className="mb-8 bg-[#41BB65]/20 rounded-xl p-4">
         <h1 className="text-gray-900 mb-2">Member Management</h1>
         <p className="text-gray-600">Manage your subscribers and their subscriptions</p>
       </div>
@@ -116,7 +116,7 @@ export default function MemberManagement() {
 
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gray-50 border-b border-gray-200">
+            <thead className="bg-[#41BB65]/20 border-b border-gray-200">
               <tr>
                 <th className="px-6 py-3 text-left text-gray-700">Name</th>
                 <th className="px-6 py-3 text-left text-gray-700">Email</th>
@@ -180,7 +180,7 @@ export default function MemberManagement() {
 
       {/* Add Member Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div className="fixed inset-0 bg-black/30 backdrop-blur-md backdrop-saturate-150 flex items-center justify-center p-4 z-50 transition-all">
           <div className="bg-white rounded-xl shadow-xl max-w-md w-full">
             <div className="flex items-center justify-between p-6 border-b border-gray-200">
               <h2 className="text-gray-900">Add New Member</h2>

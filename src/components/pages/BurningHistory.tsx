@@ -116,7 +116,7 @@ export default function BurningHistory() {
 
   return (
     <div className="p-8">
-      <div className="mb-8">
+      <div className="mb-8 bg-[#41BB65]/20 rounded-xl p-4">
         <h1 className="text-gray-900 mb-2">Burning History</h1>
         <p className="text-gray-600">Track all waste burning activities and their status</p>
       </div>
@@ -164,7 +164,7 @@ export default function BurningHistory() {
 
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gray-50 border-b border-gray-200">
+            <thead className="bg-[#41BB65]/20 border-b border-gray-200">
               <tr>
                 <th className="px-6 py-3 text-left text-gray-700">Date & Time</th>
                 <th className="px-6 py-3 text-left text-gray-700">Location</th>

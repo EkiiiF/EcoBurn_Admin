@@ -49,7 +49,7 @@ export default function Reports() {
 
   return (
     <div className="p-8">
-      <div className="mb-8">
+      <div className="mb-8 bg-[#41BB65]/20 rounded-xl p-4">
         <h1 className="text-gray-900 mb-2">Reports</h1>
         <p className="text-gray-600">Generate and export comprehensive system reports</p>
       </div>
@@ -154,7 +154,7 @@ export default function Reports() {
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gray-50 border-b border-gray-200">
+            <thead className="bg-[#41BB65]/20 border-b border-gray-200">
               <tr>
                 <th className="px-6 py-3 text-left text-gray-700">Month</th>
                 <th className="px-6 py-3 text-left text-gray-700">Waste Processed (kg)</th>

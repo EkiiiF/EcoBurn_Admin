@@ -1,6 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from "react";
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { Trash2, DollarSign, Users, TrendingUp } from 'lucide-react';
+import { TrendingUp } from 'lucide-react';
+import { AiOutlineFire } from "react-icons/ai";
+import { LuTriangleAlert } from "react-icons/lu";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import { MdOutlineAccessTime } from "react-icons/md";
+import axios from "axios";
 
 const dailyData = [
   { date: 'Mon', volume: 45 },
@@ -39,6 +44,20 @@ const subscriberPrediction = [
 ];
 
 export default function Dashboard() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/user", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+    .then(res => setUser(res.data))
+    .catch(() => console.log("Failed fetch user"));
+  }, []);
+
+  const userName = localStorage.getItem("username") || "User";
+
   const [timeFilter, setTimeFilter] = useState<'daily' | 'weekly' | 'monthly'>('daily');
 
   const getChartData = () => {
@@ -68,37 +87,48 @@ export default function Dashboard() {
       title: 'Total Waste',
       value: '1,470 kg',
       change: '+12.5%',
-      icon: Trash2,
-      bgColor: 'bg-blue-50',
-      iconColor: 'text-blue-600',
+      icon: AiOutlineFire,
+      bgColor: 'bg-orange-500',
+      iconColor: 'text-white',
     },
     {
       title: 'Total Revenue',
       value: '$12,450',
       change: '+8.2%',
-      icon: DollarSign,
-      bgColor: 'bg-green-50',
-      iconColor: 'text-[#3BAA5C]',
+      icon: LuTriangleAlert,
+      bgColor: 'bg-red-500',
+      iconColor: 'text-white',
     },
     {
       title: 'Active Subscribers',
       value: '265',
       change: '+15.3%',
-      icon: Users,
-      bgColor: 'bg-purple-50',
-      iconColor: 'text-purple-600',
+      icon: FaRegCircleCheck,
+      bgColor: 'bg-green-500',
+      iconColor: 'text-white',
+    },
+    {
+      title: 'Active Subscribers',
+      value: '265',
+      change: '+15.3%',
+      icon: MdOutlineAccessTime,
+      bgColor: 'bg-yellow-500',
+      iconColor: 'text-white',
     },
   ];
 
   return (
     <div className="p-8">
       <div className="mb-8">
-        <h1 className="text-gray-900 mb-2">Dashboard</h1>
+        {/* <h1 className="text-gray-900 mb-2">Welcome Back{user ? `, ${user.name}` : `...`}</h1> */}
+        <h1 className="text-gray-900 mb-2">Welcome Back, {userName}</h1>
+        <h1 className="text-gray-900 mb-2">Dashboard Overview</h1>
         <p className="text-gray-600">Welcome back! Here's what's happening with your waste monitoring system.</p>
       </div>
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8"> */}
+      <div className="grid grid-cols-4 gap-6 mb-8">
         {summaryCards.map((card, index) => (
           <div key={index} className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <div className="flex items-start justify-between mb-4">

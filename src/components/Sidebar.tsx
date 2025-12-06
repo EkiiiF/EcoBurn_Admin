@@ -18,11 +18,18 @@ export default function Sidebar({ onLogout }: SidebarProps) {
     <aside className="w-64 bg-white border-r border-gray-200 flex flex-col">
       <div className="p-6 border-b border-gray-200">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#3BAA5C] rounded-lg flex items-center justify-center">
+          {/* <div className="w-10 h-10 bg-[#3BAA5C] rounded-lg flex items-center justify-center">
             <Leaf className="w-6 h-6 text-white" />
-          </div>
+          </div> */}
+          <div className="flex items-center justify-center w-15 h-15">
+              <img 
+                src="/EcoBurn_Logo.png"
+                alt="EcoBurn Logo"
+                className="w-20 h-20 object-contain"
+              />
+            </div>
           <div>
-            <h1 className="text-gray-900">Tobong Asap</h1>
+            <h1 className="text-gray-900">EcoBurn</h1>
             <p className="text-xs text-gray-500">Monitoring System</p>
           </div>
         </div>
@@ -50,7 +57,7 @@ export default function Sidebar({ onLogout }: SidebarProps) {
         </ul>
       </nav>
       
-      <div className="p-4 border-t border-gray-200">
+      {/* <div className="p-4 border-t border-gray-200">
         <button
           onClick={onLogout}
           className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 w-full transition-colors"
@@ -58,7 +65,17 @@ export default function Sidebar({ onLogout }: SidebarProps) {
           <LogOut className="w-5 h-5" />
           <span>Logout</span>
         </button>
+      </div> */}
+      <div className="p-4 border-t border-gray-200">
+        <button
+          onClick={onLogout}
+          className="group flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:text-red-600 hover:bg-red-50 w-full transition-colors"
+        >
+          <LogOut className="w-5 h-5 group-hover:text-red-600 transition-colors" />
+          <span>Logout</span>
+        </button>
       </div>
+
     </aside>
   );
 }
